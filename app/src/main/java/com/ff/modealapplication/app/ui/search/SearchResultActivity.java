@@ -6,12 +6,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.ff.modealapplication.R;
 import com.ff.modealapplication.andorid.network.SafeAsyncTask;
 import com.ff.modealapplication.app.core.service.SearchService;
+import com.ff.modealapplication.app.ui.item.ItemDetailActivity;
 
 import java.util.List;
 import java.util.Map;
@@ -33,6 +36,16 @@ public class SearchResultActivity extends AppCompatActivity {
         ListView listView = (ListView) findViewById(R.id.list_searchResultList);
 
         listView.setAdapter(searchResultListAdapter);
+        //listview click시 이동
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                Intent intent = new Intent(SearchResultActivity.this, ItemDetailActivity.class);
+//                intent.putExtra("no",get)
+                startActivity(intent);
+            }
+        });
 
         Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar_search);
         setSupportActionBar(toolbar);

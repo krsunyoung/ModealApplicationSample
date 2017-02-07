@@ -83,6 +83,8 @@ public class SearchResultListAdapter extends ArrayAdapter<Map<String, Object>> {
         textPriceView.setText(String.valueOf(itemVo.get("price")));
         textShopSpaceView.setText(itemVo.get("shopName").toString());
 
+        int Itemno = (int)itemVo.get("no");
+
         return view;
 //        return super.getView(position, convertView, parent);
     }
